@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>LCS CleanFix</name>
+  <author>Little Code Sauce</author>
+  <packageId>lcs.cleanfix</packageId>
+  <modVersion>1.0</modVersion>
+  <supportedVersions>
+    <li>1.7</li>
+  </supportedVersions>
+  <description>补两个 1.7 下缺失的 def 引用，消掉加载时的交叉引用红字（DamageDef PurificationBurn、ThingDef Kiiro_TailorSet 占位）。</description>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>ASEL.MonolynRace</li>
+    <li>Aoba.Fortress.Industrial</li>
+    <li>Aoba.Fortress.Industrial.Citadel</li>
+  </loadAfter>
+</ModMetaData>

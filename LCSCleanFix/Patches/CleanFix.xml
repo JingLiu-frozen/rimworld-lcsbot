@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- 1) Fortifications - Industrial / Citadel 引用了 DamageDef "PurificationBurn"，
+          但 Monolyn Race 只提供同名 HediffDef，1.7 下会报交叉引用红字。这里补一个真正的 DamageDef。 -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs</xpath>
+    <value>
+      <DamageDef>
+        <defName>PurificationBurn</defName>
+        <label>purification burn</label>
+        <description>Burns caused by purification flame.</description>
+        <workerClass>DamageWorker_AddInjury</workerClass>
+        <hediff>PurificationBurn</hediff>
+        <deathMessage>{0} has been purified.</deathMessage>
+        <externalViolenceForMechanoids>true</externalViolenceForMechanoids>
+        <defaultDamage>10</defaultDamage>
+        <defaultArmorPenetration>0.5</defaultArmorPenetration>
+        <buildingDamageFactorImpassable>1</buildingDamageFactorImpassable>
+        <buildingDamageFactorPassable>1</buildingDamageFactorPassable>
+        <plantDamageFactor>6</plantDamageFactor>
+        <armorCategory>Heat</armorCategory>
+      </DamageDef>
+    </value>
+  </Operation>
+
+  <!-- 2) AriandelLibrary.ForceWearItem 引用了 ThingDef "Kiiro_TailorSet"。
+          只有装了 Kiiro 本体才有这个 def；没装时补一个占位，避免红字。 -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Ancot.KiiroStoryEventsExpanded</li>
+      <li>Ancot.KiiroRace</li>
+      <li>UR.RKCreepjoiner</li>
+    </mods>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+        <ThingDef ParentName="ApparelBase">
+          <defName>Kiiro_TailorSet</defName>
+          <label>tailor set</label>
+          <description>Placeholder for the Kiiro tailor set.</description>
+          <graphicData>
+            <texPath>Things/Item/Resource/Cloth/Cloth_a</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+          </graphicData>
+          <apparel>
+            <bodyPartGroups>
+              <li>Torso</li>
+            </bodyPartGroups>
+            <layers>
+              <li>OnSkin</li>
+            </layers>
+          </apparel>
+          <statBases>
+            <Mass>0.5</Mass>
+            <MarketValue>20</MarketValue>
+          </statBases>
+        </ThingDef>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>

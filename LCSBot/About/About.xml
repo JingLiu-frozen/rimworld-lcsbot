@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>LCS Bot Bridge</name>
+  <author>Little Code Sauce</author>
+  <packageId>dsh.lcsbot</packageId>
+  <description>A local, loopback-only automation bridge. It publishes the colony state as JSON over 127.0.0.1 and executes orders sent to the same socket, so an external agent can watch and play this colony without touching the UI. No gameplay changes, no balancing, no new defs. Single player only. Delete this mod and nothing about the save changes.</description>
+  <supportedVersions>
+    <li>1.7</li>
+  </supportedVersions>
+</ModMetaData>

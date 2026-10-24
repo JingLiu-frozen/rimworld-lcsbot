@@ -1,0 +1,16 @@
+# runtime state written by the bridge while playing — never commit
+*.log
+plan.txt
+port.txt
+autoload.txt*
+*.bak
+*.bak-*
+
+# generated knowledge export (RimTalk format); regenerate from Knowledge/
+Knowledge/RimTalk/
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.vs/
+.idea/
